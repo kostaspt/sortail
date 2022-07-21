@@ -12,7 +12,6 @@ const Home: NextPage = () => {
 
       <main>
         <h1>Sortail</h1>
-
       </main>
     </div>
   )
