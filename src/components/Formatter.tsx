@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const labelClasses = 'mb-2 block text-sm font-semibold text-gray-700'
+const labelClasses = 'mb-2 block text-sm font-semibold'
 const inputClasses =
   'focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow transition-colors duration-300 ease-in-out focus:z-10 focus:border-sky-500 focus:ring-sky-500'
 
