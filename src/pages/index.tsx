@@ -11,7 +11,19 @@ const Home: NextPage = () => {
   const [output, setOutput] = useState<string>('')
 
   useEffect(() => {
-    setOutput(input)
+    fetch('/api/format', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        classes: input,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setOutput(data.classes)
+      })
   }, [input])
 
   return (
