@@ -5,9 +5,13 @@ function bigSign(bigIntValue: bigint): number {
   return Number(bigIntValue > 0n) - Number(bigIntValue < 0n)
 }
 
+function sanitize(input: string): string {
+  return input.replace(/\s+/g, ' ').trim()
+}
+
 export default function sortClasses(input: string): string {
   const ctx = createContext(resolveConfig({}))
-  const sortedClasses = ctx.getClassOrder(input.split(' '))
+  const sortedClasses = ctx.getClassOrder(sanitize(input).split(' '))
 
   return sortedClasses
     .sort((a: Array<any>, b: Array<any>) => {
