@@ -39,10 +39,10 @@ export default function Formatter() {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="input" className={labelClasses}>
+        <label htmlFor="output" className={labelClasses}>
           Output:
         </label>
-        <input id="input" type="text" className={inputClasses} value={output} readOnly />
+        <input id="output" type="text" className={inputClasses} value={output} readOnly />
       </div>
     </>
   )
