@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "dev": "next dev",
     "format": "prettier --write \"{,!(.next|out|coverage|pb)/**/}*.{js,jsx,ts,tsx}\"",
-    "prepare": "husky install"
+    "lint": "next lint",
+    "prepare": "husky install",
+    "start": "next start"
   },
   "dependencies": {
     "next": "12.2.2",
@@ -23,7 +23,7 @@
     "eslint": "8.20.0",
     "eslint-config-next": "12.2.2",
     "eslint-config-prettier": "^8.5.0",
-    "husky": "^8.0.0",
+    "husky": "^8.0.1",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.12",
