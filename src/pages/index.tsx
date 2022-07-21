@@ -9,6 +9,10 @@ const Home: NextPage = () => {
         <title>Sortail</title>
         <meta name="description" content="Sort Tailwind CSS classes on the fly" />
         <link rel="icon" href="/public/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
       <header className="mt-10 mb-8">
