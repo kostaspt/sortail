@@ -1,31 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
-
-const labelClasses = 'mb-2 block text-sm font-semibold text-gray-700'
-const inputClasses =
-  'focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none'
+import Formatter from '../components/Formatter'
 
 const Home: NextPage = () => {
-  const [input, setInput] = useState<string>('')
-  const [output, setOutput] = useState<string>('')
-
-  useEffect(() => {
-    fetch('/api/format', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        classes: input,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setOutput(data.classes)
-      })
-  }, [input])
-
   return (
     <div>
       <Head>
@@ -39,24 +16,7 @@ const Home: NextPage = () => {
       </header>
 
       <main className="container mx-auto max-w-2xl bg-white py-14 px-10 shadow">
-        <div className="mb-4">
-          <label htmlFor="input" className={labelClasses}>
-            Input:
-          </label>
-          <input
-            id="input"
-            type="text"
-            className={inputClasses}
-            onChange={(e) => setInput(e.target.value)}
-            value={input}
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="input" className={labelClasses}>
-            Output:
-          </label>
-          <input id="input" type="text" className={inputClasses} value={output} readOnly />
-        </div>
+        <Formatter />
       </main>
     </div>
   )
