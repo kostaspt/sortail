@@ -73,7 +73,7 @@ export default function Formatter() {
           ref={inputRef}
           aria-label="Classes to sort"
           type="text"
-          className="focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow transition-colors duration-300 ease-in-out focus:z-10 focus:border-sky-500 focus:ring-sky-500"
+          className="focus:shadow-outline w-full appearance-none rounded border py-2 px-3 font-mono leading-tight text-gray-700 shadow transition-colors duration-300 ease-in-out focus:z-10 focus:border-sky-500 focus:ring-sky-500"
           onChange={handleChange}
         />
       </div>

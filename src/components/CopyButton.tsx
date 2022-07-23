@@ -21,12 +21,12 @@ export default function CopyButton({ text }: CopyButtonProps) {
         <button
           title="Copy result to clipboard"
           onClick={handleCopyClick}
-          className="flex items-center transition-colors hover:text-sky-500 active:text-sky-600"
+          className="flex items-center transition-colors hover:text-sky-500"
         >
           <FaRegClone />
         </button>
       ) : (
-        <FaCheck className="text-green-500" />
+        <FaCheck className="text-emerald-500" />
       )}
     </div>
   )
