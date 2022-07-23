@@ -11,9 +11,12 @@ type DiffViewerProps = {
 }
 
 export default function DiffViewer({ isLoading, before, after, labelClasses }: DiffViewerProps) {
-  const diff = useMemo(() => Diff.diffWords(before ?? '', after ?? ''), [before, after])
+  const diff = useMemo(
+    () => (before.length > 0 && after.length > 0 ? Diff.diffWords(before, after ?? '') : null),
+    [before, after]
+  )
 
-  if (diff.length <= 1) {
+  if (diff && diff.length <= 1) {
     return <div className="text-center font-semibold">Classes are already sorted 👌🏼</div>
   }
 

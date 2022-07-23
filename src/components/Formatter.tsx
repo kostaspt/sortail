@@ -77,7 +77,7 @@ export default function Formatter() {
           onChange={handleChange}
         />
       </div>
-      {input.length > 0 && output.length > 0 && (
+      {input.length > 0 && (
         <DiffViewer isLoading={isLoading} before={input} after={output} labelClasses={labelClasses} />
       )}
     </>
