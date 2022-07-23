@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         <h1 className="text-center text-3xl font-bold">Sortail</h1>
       </header>
 
-      <main className="container mx-auto max-w-2xl bg-white py-14 px-10 shadow">
+      <main className="container mx-auto max-w-2xl bg-white py-8 px-10 shadow">
         <Formatter />
       </main>
     </div>
