@@ -1,6 +1,7 @@
 import debounce from 'lodash.debounce'
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react'
 import DiffViewer from './DiffViewer'
+import ExampleButton from './ExampleButton'
 
 const labelClasses = 'mb-2 block font-semibold'
 
@@ -8,7 +9,6 @@ export default function Formatter() {
   const [isLoading, setIsLoading] = useState(false)
   const [input, setInput] = useState<string>('')
   const [output, setOutput] = useState<string>('')
-  const [prevExampleId, setPrevExampleId] = useState<number>(-1)
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -34,40 +34,19 @@ export default function Formatter() {
     []
   )
 
-  const handleExampleClick = () => {
-    const examples = [
-      'px-3 p-1 py-3',
-      'px-4 container',
-      'px-3 focus:hover:p-3 hover:p-1 py-3',
-      'hover:container container',
-      'focus:hover:container hover:underline hover:container p-1',
-      'b p-1 a',
-      'hover:b focus:p-1 a',
-    ]
-
-    // Don't use the same example twice in a row
-    let exampleId
-    do {
-      exampleId = Math.floor(Math.random() * examples.length)
-    } while (exampleId === prevExampleId)
-    setPrevExampleId(exampleId)
-
-    const example = examples[exampleId]
-
-    setInput(example)
-    if (inputRef.current) {
-      inputRef.current.value = example
-    }
-  }
-
   return (
     <>
       <div className="mb-6">
         <label className={`${labelClasses} item-center flex justify-between`}>
           <span>Paste the classes you want to sort</span>
-          <button className="text-sky-500" onClick={handleExampleClick}>
-            Example?
-          </button>
+          <ExampleButton
+            updateInput={(text) => {
+              setInput(text)
+              if (inputRef.current) {
+                inputRef.current.value = text
+              }
+            }}
+          />
         </label>
         <input
           ref={inputRef}
