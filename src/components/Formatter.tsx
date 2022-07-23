@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import debounce from 'lodash.debounce'
+import { ChangeEvent, useCallback, useEffect, useState } from 'react'
 
 const labelClasses = 'mb-2 block text-sm font-semibold'
 const inputClasses =
@@ -24,21 +25,20 @@ export default function Formatter() {
       })
   }, [input])
 
+  const handleChange = useCallback(
+    debounce((e: ChangeEvent<HTMLInputElement>) => setInput(e.target.value ?? ''), 200),
+    []
+  )
+
   return (
     <>
       <div className="mb-4">
         <label htmlFor="input" className={labelClasses}>
           Input:
         </label>
-        <input
-          id="input"
-          type="text"
-          className={inputClasses}
-          onChange={(e) => setInput(e.target.value)}
-          value={input}
-        />
+        <input id="input" type="text" className={inputClasses} onChange={handleChange} />
       </div>
-      <div className="mb-4">
+      <div>
         <label htmlFor="output" className={labelClasses}>
           Output:
         </label>
