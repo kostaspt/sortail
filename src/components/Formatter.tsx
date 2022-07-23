@@ -5,12 +5,14 @@ import DiffViewer from './DiffViewer'
 const labelClasses = 'mb-2 block font-semibold'
 
 export default function Formatter() {
+  const [isLoading, setIsLoading] = useState(false)
   const [input, setInput] = useState<string>('')
   const [output, setOutput] = useState<string>('')
   const [prevExampleId, setPrevExampleId] = useState<number>(-1)
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
+    setIsLoading(true)
     fetch('/api/format', {
       method: 'POST',
       headers: {
@@ -21,7 +23,10 @@ export default function Formatter() {
       }),
     })
       .then((res) => res.json())
-      .then((data) => setOutput(data.classes))
+      .then((data) => {
+        setOutput(data.classes)
+        setIsLoading(false)
+      })
   }, [input])
 
   const handleChange = useCallback(
@@ -73,7 +78,7 @@ export default function Formatter() {
         />
       </div>
       {input.length > 0 && output.length > 0 && (
-        <DiffViewer before={input} after={output} labelClasses={labelClasses} />
+        <DiffViewer isLoading={isLoading} before={input} after={output} labelClasses={labelClasses} />
       )}
     </>
   )

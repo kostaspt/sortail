@@ -1,17 +1,17 @@
 import * as Diff from 'diff'
 import { useMemo } from 'react'
-import { FaRegClone } from 'react-icons/fa'
+import { ImSpinner8 } from 'react-icons/im'
 import CopyButton from './CopyButton'
 
 type DiffViewerProps = {
+  isLoading: boolean
   before: string
   after: string
   labelClasses?: string
 }
 
-export default function DiffViewer({ before, after, labelClasses }: DiffViewerProps) {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const diff = useMemo(() => Diff.diffWords(before ?? '', after ?? ''), [after])
+export default function DiffViewer({ isLoading, before, after, labelClasses }: DiffViewerProps) {
+  const diff = useMemo(() => Diff.diffWords(before ?? '', after ?? ''), [before, after])
 
   if (diff.length <= 1) {
     return <div className="text-center font-semibold">Classes are already sorted 👌🏼</div>
@@ -31,7 +31,7 @@ export default function DiffViewer({ before, after, labelClasses }: DiffViewerPr
           </tr>
           <tr className="bg-green-100">
             <td className="w-6 text-center">+</td>
-            <td>{after}</td>
+            <td>{!isLoading ? after : <ImSpinner8 className="animate-spin" />}</td>
           </tr>
         </tbody>
       </table>
