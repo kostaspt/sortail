@@ -37,7 +37,7 @@ export default function Formatter() {
   return (
     <>
       <div className="mb-6">
-        <label className={`${labelClasses} item-center flex justify-between`}>
+        <div className={`${labelClasses} item-center flex justify-between`}>
           <span>Paste the classes you want to sort</span>
           <ExampleButton
             updateInput={(text) => {
@@ -47,12 +47,12 @@ export default function Formatter() {
               }
             }}
           />
-        </label>
+        </div>
         <input
           ref={inputRef}
           aria-label="Classes to sort"
           type="text"
-          className="focus:shadow-outline w-full appearance-none rounded border py-2 px-3 font-mono leading-tight text-gray-700 shadow transition-colors duration-300 ease-in-out focus:z-10 focus:border-sky-500 focus:ring-sky-500"
+          className="w-full appearance-none rounded-md border border-gray-300 px-3.5 py-1.5 font-mono shadow-sm focus:border-sky-500 focus:ring-sky-500 dark:border-0 dark:bg-slate-700 dark:ring-1 dark:ring-white/20 dark:focus:border-white/40 dark:focus:ring-white/40 sm:text-sm"
           onChange={handleChange}
         />
       </div>

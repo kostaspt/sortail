@@ -26,15 +26,15 @@ export default function DiffViewer({ isLoading, before, after, labelClasses }: D
         <span>Result</span>
         <CopyButton text={after} />
       </div>
-      <table className="mb-4 w-full table-auto font-mono">
+      <table className="mb-4 w-full table-auto overflow-hidden rounded font-mono">
         <tbody>
-          <tr className="bg-red-100">
-            <td className="w-6 text-center">-</td>
-            <td>{before}</td>
+          <tr className="bg-red-100 dark:bg-red-800 sm:text-sm">
+            <td className="w-6 py-2 text-center">-</td>
+            <td className="py-2">{before}</td>
           </tr>
-          <tr className="bg-green-100">
-            <td className="w-6 text-center">+</td>
-            <td>{!isLoading ? after : <ImSpinner8 className="animate-spin" />}</td>
+          <tr className="bg-green-100 dark:bg-emerald-800 sm:text-sm">
+            <td className="w-6 py-2 text-center">+</td>
+            <td className="py-2">{!isLoading ? after : <ImSpinner8 className="animate-spin" />}</td>
           </tr>
         </tbody>
       </table>

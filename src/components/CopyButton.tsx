@@ -21,7 +21,7 @@ export default function CopyButton({ text }: CopyButtonProps) {
         <button
           title="Copy result to clipboard"
           onClick={handleCopyClick}
-          className="flex items-center transition-colors hover:text-sky-500"
+          className="flex items-center hover:text-sky-500"
         >
           <FaRegClone />
         </button>

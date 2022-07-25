@@ -11,7 +11,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className="min-h-full bg-slate-100 font-sans text-gray-700 antialiased">
+        <body className="min-h-full bg-slate-100 font-sans text-gray-700 antialiased dark:bg-slate-900 dark:text-gray-100">
           <Main />
           <NextScript />
         </body>

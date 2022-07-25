@@ -29,7 +29,7 @@ export default function ExampleButton({ updateInput }: ExampleButtonProps) {
   }
 
   return (
-    <button className="text-sky-500" onClick={handleExampleClick}>
+    <button className="text-sky-500 dark:text-sky-400" onClick={handleExampleClick}>
       Example?
     </button>
   )
