@@ -1,7 +1,9 @@
 import type { NextPage } from 'next'
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Formatter from '../components/Formatter'
-import ThemeSwitcher from '../components/ThemeSwitcher'
+
+const ThemeSwitcher = dynamic(() => import('../components/ThemeSwitcher'), { ssr: false })
 
 const Home: NextPage = () => {
   return (
